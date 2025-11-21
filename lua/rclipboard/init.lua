@@ -40,7 +40,7 @@ local function build_fetch_cmd(opts, topic)
 	elseif topic == "s" then
 		table.insert(cmd, "-s")
 	end
-	-- Ask clipctl2 to emit in chosen encoding, then decode locally
+	-- Ask rclipctl to emit in chosen encoding, then decode locally
 	table.insert(cmd, "--encoding")
 	table.insert(cmd, opts.decode)
 	if opts.uds and #opts.uds > 0 then
@@ -82,7 +82,7 @@ end
 
 local function default_opts()
 	return {
-		bin = "clipctl2",
+		bin = "rclipctl",
 		host = nil,
 		port = nil,
 		uds = nil,
@@ -135,7 +135,7 @@ function M.setup(user_opts)
 	set_clipboard(opts)
 
 	vim.api.nvim_create_user_command("RclipboardHealth", function()
-		local cmd = { "clipctl2", "health" }
+		local cmd = { "rclipctl", "health" }
 		if opts.uds and #opts.uds > 0 then
 			table.insert(cmd, "--uds")
 			table.insert(cmd, opts.uds)

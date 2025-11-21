@@ -6,7 +6,7 @@ source = {
 description = {
 	summary = "Simple Neovim clipboard provider for rclipboard",
 	detailed = [[
-A lightweight Neovim plugin that wires Neovim's clipboard to rclipboard via clipctl2,
+A lightweight Neovim plugin that wires Neovim's clipboard to rclipboard via rclipctl,
 supporting TCP or Unix Domain Sockets and reading the same env file as the systemd setup.
   ]],
 	license = "MIT",

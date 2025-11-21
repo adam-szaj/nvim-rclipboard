@@ -1,10 +1,10 @@
 # nvim-rclipboard
 
-Simple Neovim plugin to integrate rclipboard as Neovim’s clipboard provider using `clipctl2`.
+Simple Neovim plugin to integrate rclipboard as Neovim’s clipboard provider using `rclipctl`.
 
 Features
 - Uses rclipboard over TCP or Unix Domain Socket (UDS).
-- Publishes yanks as base64 (no padding) by default; decodes on paste.
+- Publishes yanks as base64 (with padding) by default; decodes on paste.
 - Reads the same env file as the systemd user units (`~/.config/rclipboard/env`).
 - Commands: `:RclipboardHealth`, `:RclipboardConfig`.
 
@@ -35,6 +35,6 @@ Config
   require('rclipboard').setup({ encoding = 'base64', decode = 'base64' })
 
 Notes
-- `clipctl2` must be on PATH.
+- `rclipctl` must be on PATH.
 - For UDS, ensure the socket exists and is readable (see the main README for systemd socket activation).
 - The plugin sets `vim.g.clipboard` using external commands; this works across most setups without additional Lua dependencies.
